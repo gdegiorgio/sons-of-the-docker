@@ -34,15 +34,14 @@ ADD scripts /opt/scripts/sons-of-the-docker/
 
 #RUN wineboot -u
 
-RUN /opt/scripts/sons-of-the-docker/install_server.sh
 
 # Install game
 ADD cfg /root/.wine/drive_c/users/root/AppData/LocalLow/Endnight/SonsOfTheForestDS
 WORKDIR /srv/sons-of-the-docker
-RUN Xvfb :1 -screen 0 1024x768x24 &
 
 
 
+RUN /opt/scripts/sons-of-the-docker/install.sh
 
 EXPOSE 8766 27016 9700
-ENTRYPOINT ["sh", "/opt/scripts/sons-of-the-docker/start_server.sh"]
+ENTRYPOINT ["bash", "/opt/scripts/sons-of-the-docker/start.sh"]
