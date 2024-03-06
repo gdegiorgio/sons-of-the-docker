@@ -29,21 +29,18 @@ jobs:
           prefix: v
           tag_name: ${{ steps.latest_tag.outputs.latest_tag }}
 
-      - name: Build Docker image
-        run: |
-          docker build -t sons-of-the-docker .
-          docker tag sons-of-the-docker giovannidegiorgio/sons-of-the-docker:${{ steps.semver.outputs.version }}  .
-          docker tag sons-of-the-docker giovannidegiorgio/sons-of-the-docker:latest
-
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
         with:
           username: giovannidegiorgio
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Push Docker image with new tag
-        run: | 
-          docker push giovannidegiorgio/sons-of-the-docker:${{ steps.semver.outputs.version }} .
+      - name: Build and Push Docker image with new tag
+        run: |
+          docker build -t sons-of-the-docker .
+          docker tag sons-of-the-docker giovannidegiorgio/sons-of-the-docker:${{ steps.semver.outputs.new_tag }}  .
+          docker tag sons-of-the-docker giovannidegiorgio/sons-of-the-docker:latest
+          docker push giovannidegiorgio/sons-of-the-docker:${{ steps.semver.outputs.new_tag }} .
           docker push giovannidegiorgio/sons-of-the-docker:latest .
 
       - name: Push Docker image with latest tag
