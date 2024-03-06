@@ -26,13 +26,6 @@ jobs:
           push_tag: true
           prefix: v
           tag_name: ${{ steps.latest_tag.outputs.latest_tag }}
-      - name: Determine new version
-        id: semver
-        uses: anothrNick/github-tag-action@1.20.0
-        with:
-          push_tag: true
-          prefix: v
-          tag_name: ${{ github.ref }}
 
       - name: Build Docker image
         run: |
