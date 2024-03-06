@@ -12,10 +12,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-      - name: Get Latest Tag
-        id: latest_tag
-        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+      - name: Get latest tag
+        run: |
+          latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1))
+          echo "Latest tag is $latest_tag"
+          echo "::set-output name=latest_tag::$latest_tag"
 
       - name: Determine new version
         id: semver
@@ -23,7 +27,7 @@ jobs:
         with:
           push_tag: true
           prefix: v
-          tag_name: ${{ steps.latest_tag.outputs.tag }}
+          tag_name: ${{ steps.latest_tag.outputs.latest_tag }}
 
       - name: Build Docker image
         run: |
