@@ -1,0 +1,42 @@
+name: Semantic Versioning and Docker Image Push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Determine new version
+        id: semver
+        uses: anothrNick/github-tag-action@1.20.0
+        with:
+          push_tag: true
+          prefix: v
+          tag_name: ${{ github.ref }}
+
+      - name: Build Docker image
+        run: |
+          docker build -t sons-of-the-docker .
+          docker tag sons-of-the-docker giovannidegiorgio/sons-of-the-docker:${{ steps.semver.outputs.version }}  .
+          docker tag sons-of-the-docker giovannidegiorgio/sons-of-the-docker:latest
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: giovannidegiorgio
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Push Docker image with new tag
+        run: | 
+          docker push giovannidegiorgio/sons-of-the-docker:${{ steps.semver.outputs.version }} .
+          docker push giovannidegiorgio/sons-of-the-docker:latest .
+
+      - name: Push Docker image with latest tag
+        run: docker push your_docker_image:latest
