@@ -11,6 +11,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: '0'
+
+      - name: Set safe git dir
+        run : |
+          git config --global --add safe.directory /github/workspace
+
       - name: Minor version for each merge
         id: dryrun
         uses: anothrNick/github-tag-action@1.36.0
@@ -19,20 +24,16 @@ jobs:
           WITH_V: true
           DRY_RUN: true
 
-      - name: echo new tag
+      - name: Show new Tag
         run: |
           echo "The next tag version will be: ${{ steps.dryrun.outputs.new_tag }}"
-      - name: echo tag
-        run: |
-          echo "The current tag is: ${{ steps.dryrun.outputs.tag }}"
-      - name: echo part
+      - name: Show Part
         run: |
           echo "The version increment was: ${{ steps.dryrun.outputs.part }}"
-      
 
-      - name: Minor version for each merge
-        id: taggerFinal
+      - name: Tag repository
+        id: tagRepo
         uses: anothrNick/github-tag-action@1.36.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           WITH_V: true
