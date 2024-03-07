@@ -1,4 +1,4 @@
-name: Semantic Versioning and Docker Image Push
+name: Semantic Versioning
 
 on:
   push:
@@ -15,32 +15,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get latest tag
-        run: |
-          latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1))
-          echo "Latest tag is $latest_tag"
-          echo "::set-output name=latest_tag::$latest_tag"
-
       - name: Determine new version
         id: semver
         uses: anothrNick/github-tag-action@1.20.0
         with:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           WITH_V: true
+          DRY_RUN: true
 
-      - name: Log in to Docker Hub
-        uses: docker/login-action@v1
-        with:
-          username: giovannidegiorgio
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Build and Push Docker image with new tag
-        run: |
-          docker build -t sons-of-the-docker .
-          docker tag sons-of-the-docker giovannidegiorgio/sons-of-the-docker:${{ steps.semver.outputs.new_tag }}  .
-          docker tag sons-of-the-docker giovannidegiorgio/sons-of-the-docker:latest
-          docker push giovannidegiorgio/sons-of-the-docker:${{ steps.semver.outputs.new_tag }} .
-          docker push giovannidegiorgio/sons-of-the-docker:latest .
-
-      - name: Push Docker image with latest tag
-        run: docker push your_docker_image:latest
