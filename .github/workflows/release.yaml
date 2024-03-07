@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  Patch:
+  release-tag:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
