@@ -1,5 +1,5 @@
 
->⚠️ **Warning: Still Under Development** ⚠️
+>⚠️ **Warning: Still Under Development** ⚠️  
 > 🗺️ On the Roadmap: Providing volumes for data persistence and external configs mapping. Stay tuned for updates from the underworld!
 
 # Sons of the Forest - Dedicated Server with Docker :skull:
