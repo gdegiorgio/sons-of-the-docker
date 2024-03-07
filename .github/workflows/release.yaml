@@ -8,6 +8,7 @@ on:
 jobs:
   release-tag:
     runs-on: ubuntu-latest
+    if: "startsWith(github.event.head_commit.message, 'feat') || startsWith(github.event.head_commit.message, 'fix')"
     steps:
       - uses: actions/checkout@v2
         with:
