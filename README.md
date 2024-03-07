@@ -1,5 +1,6 @@
 
 >⚠️ **Warning: Still Under Development** ⚠️
+> 🗺️ On the Roadmap: Providing volumes for data persistence and external configs mapping. Stay tuned for updates from the underworld!
 
 # Sons of the Forest - Dedicated Server with Docker :skull:
 
@@ -22,14 +23,14 @@ Ensure you have the following ghastly tools installed on your machine:
 Open your terminal and unleash the dark magic with this command:
 
 ```bash
-docker pull sons-of-the-docker/server:latest
+docker pull giovannidegiorgio/sons-of-the-docker:latest
 ```
 :skull: Run the Server
 
 Once the image is summoned, bring it to life with the following incantation:
 
 ```bash
-docker run -d --name sons_of_the_docker_server -p 8080:8080 sons-of-the-docker/server:latest
+docker run -d --name sons_of_the_docker -p 8766:8766/udp -p 27016:27016/udp -p 9700:9700/udp giovannidegiorgio/sons-of-the-docker:latest
 ```
 
 ### :eyes: Verify the Server is Running
