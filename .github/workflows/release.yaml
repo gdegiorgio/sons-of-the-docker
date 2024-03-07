@@ -6,20 +6,37 @@ on:
       - main
 
 jobs:
-  build-and-push:
+  Patch:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
-          fetch-depth: 0
+          fetch-depth: '0'
 
-      - name: Determine new version
-        id: semver
-        uses: anothrNick/github-tag-action@1.20.0
-        with:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Set safe git dir
+        run : |
+          git config --global --add safe.directory /github/workspace
+
+      - name: Minor version for each merge
+        id: dryrun
+        uses: anothrNick/github-tag-action@1.36.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
           DRY_RUN: true
+
+      - name: Show new Tag
+        run: |
+          echo "The next tag version will be: ${{ steps.dryrun.outputs.new_tag }}"
+      - name: Show Part
+        run: |
+          echo "The version increment was: ${{ steps.dryrun.outputs.part }}"
+
+      - name: Tag repository
+        id: tagRepo
+        uses: anothrNick/github-tag-action@1.36.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          WITH_V: true
+
 
