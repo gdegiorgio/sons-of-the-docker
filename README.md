@@ -1,6 +1,7 @@
 
->⚠️ **Warning: Still Under Development** ⚠️  
-> 🗺️ On the Roadmap: Providing volumes for data persistence and external configs mapping. Stay tuned for updates from the underworld!
+> ⚠️ **DEPRECATION WARNING**: Starting from v0.8.0 the docker image name has been updated to giovannidegiorgio/sonsofthedocker instead of old giovannidegiorgio:sons-of-the-docker ⚠️  
+>⚠️ **Still Under Development** ⚠️  
+> 🗺️ On the Roadmap: Providing volumes for data persistence. Stay tuned for updates from the underworld!
 
 # Sons of the Forest - Dedicated Server with Docker :skull:
 
@@ -30,7 +31,7 @@ docker pull giovannidegiorgio/sons-of-the-docker:latest
 Once the image is summoned, bring it to life with the following incantation:
 
 ```bash
-docker run -d --name sons_of_the_docker -p 8766:8766/udp -p 27016:27016/udp -p 9700:9700/udp giovannidegiorgio/sons-of-the-docker:latest
+docker run -d --name sons_of_the_docker -p 8766:8766/udp -p 27016:27016/udp -p 9700:9700/udp  -v <PATH_TO_YOUR_CONFIG_DIR>:/srv/sonsofthedocker/config giovannidegiorgio/sons-of-the-docker:latest
 ```
 
 ### :eyes: Verify the Server is Running
