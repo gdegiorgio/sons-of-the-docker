@@ -26,9 +26,9 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: giovannidegiorgio/sonsofthedocker:latest
+          tags: giovannidegiorgio/sons-of-the-docker:latest
       - name: Build and push tag
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags:  giovannidegiorgio/sonsofthedocker:${{ github.ref_name }}
+          tags:  giovannidegiorgio/sons-of-the-docker:${{ github.ref_name }}
