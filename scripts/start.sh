@@ -1,7 +1,7 @@
 #!/bin/bash
 
 start(){
-  xvfb-run -e /dev/stdout wine64 /srv/sons-of-the-docker/SonsOfTheForestDS.exe
+  xvfb-run -e /dev/stdout wine64 /srv/sonsofthedocker/SonsOfTheForestDS.exe
 }
 
 update(){
