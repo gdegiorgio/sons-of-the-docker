@@ -26,22 +26,20 @@ ENV WINEARCH=win64
 
 # Copy files
 
-RUN mkdir -p /srv/sons-of-the-docker/
-RUN mkdir -p /opt/scripts/sons-of-the-docker/
-ADD scripts /opt/scripts/sons-of-the-docker/
-
-
-
-#RUN wineboot -u
+RUN mkdir -p /srv/sonsofthedocker/
+RUN mkdir -p /srv/sonsofthedocker/config
+RUN mkdir -p /opt/scripts/sonsofthedocker/
+ADD scripts /opt/scripts/sonsofthedocker/
 
 
 # Install game
-ADD cfg /root/.wine/drive_c/users/root/AppData/LocalLow/Endnight/SonsOfTheForestDS
-WORKDIR /srv/sons-of-the-docker
+ADD cfg /srv/sonsofthedocker/config
+WORKDIR /srv/sonsofthedocker
 
-
-
-RUN /opt/scripts/sons-of-the-docker/install.sh
+RUN 
+RUN /opt/scripts/sonsofthedocker/install.sh
+RUN mkdir -p /root/.wine/drive_c/users/root/AppData/LocalLow/Endnight/SonsOfTheForestDS
+RUN ln -s /srv/sonsofthedocker/config/* /root/.wine/drive_c/users/root/AppData/LocalLow/Endnight/SonsOfTheForestDS
 
 EXPOSE 8766 27016 9700
-ENTRYPOINT ["bash", "/opt/scripts/sons-of-the-docker/start.sh"]
+ENTRYPOINT ["bash", "/opt/scripts/sonsofthedocker/start.sh"]
