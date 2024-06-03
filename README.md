@@ -1,6 +1,6 @@
 
->⚠️ **Warning: Still Under Development** ⚠️  
-> 🗺️ On the Roadmap: Providing volumes for data persistence and external configs mapping. Stay tuned for updates from the underworld!
+>⚠️ **Still Under Development** ⚠️  
+> 🗺️ On the Roadmap: Providing volumes for data persistence. Stay tuned for updates from the underworld!
 
 # Sons of the Forest - Dedicated Server with Docker :skull:
 
@@ -30,7 +30,7 @@ docker pull giovannidegiorgio/sons-of-the-docker:latest
 Once the image is summoned, bring it to life with the following incantation:
 
 ```bash
-docker run -d --name sons_of_the_docker -p 8766:8766/udp -p 27016:27016/udp -p 9700:9700/udp giovannidegiorgio/sons-of-the-docker:latest
+docker run -d --name sons_of_the_docker -p 8766:8766/udp -p 27016:27016/udp -p 9700:9700/udp  -v <PATH_TO_YOUR_CONFIG_DIR>:/srv/sons-of-the-docker/config giovannidegiorgio/sons-of-the-docker:latest
 ```
 
 Or 
