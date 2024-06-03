@@ -1,10 +1,17 @@
 
 >⚠️ **Still Under Development** ⚠️  
-> 🗺️ On the Roadmap: Providing volumes for data persistence. Stay tuned for updates from the underworld!
+> 🗺️ On the Roadmap: Providing volumes for data persistence. Stay tuned for updates from the underworld!  
+
+![Release Workflow](https://github.com/gdegiorgio/sons-of-the-docker/actions/workflows/push-image.yaml/badge.svg)
+![Docker Pulls](https://img.shields.io/docker/pulls/giovannidegiorgio/sons-of-the-docker.svg)
+[!["Buy Me A Coffee"](https://img.shields.io/badge/-buy_me_a%C2%A0coffee-gray?logo=buy-me-a-coffee)](https://www.buymeacoffee.com/gioddiggi)
+
 
 # Sons of the Forest - Dedicated Server with Docker :skull:
 
 Welcome to the world of Sons of the Docker! :ghost:
+
+
 
 Prepare yourself for a chilling journey into the depths of containerization and beyond! :zombie:
 
