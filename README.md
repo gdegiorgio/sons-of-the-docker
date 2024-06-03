@@ -33,6 +33,23 @@ Once the image is summoned, bring it to life with the following incantation:
 docker run -d --name sons_of_the_docker -p 8766:8766/udp -p 27016:27016/udp -p 9700:9700/udp giovannidegiorgio/sons-of-the-docker:latest
 ```
 
+Or 
+
+```yaml
+version: '3'
+services:
+  sons-of-the-docker:
+    image: giovannidegiorgio/sons-of-the-docker:latest
+    container_name: sons-of-the-docker
+    ports:
+      - "8766:8766/udp"
+      - "27016:27016/udp" 
+      - "9700:9700/udp"
+  volumes:
+    - "<PATH_TO_YOUR_CONFIG_DIR>:/srv/sons-of-the-docker/config"
+
+```
+
 ### :eyes: Verify the Server is Running
 
 Peek into the netherworld to ensure the server has risen from the depths:
