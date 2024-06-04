@@ -37,8 +37,11 @@ docker pull giovannidegiorgio/sons-of-the-docker:latest
 
 Once the image is summoned, bring it to life with the following incantation:
 
+
+PS. Use UPDATE_ON_START=true if you want to update your server each reboot
+
 ```bash
-docker run -d --name sons_of_the_docker -p 8766:8766/udp -p 27016:27016/udp -p 9700:9700/udp  -v <PATH_TO_YOUR_CONFIG_DIR>:/srv/sons-of-the-docker/config giovannidegiorgio/sons-of-the-docker:latest
+docker run -d --name sons_of_the_docker -p 8766:8766/udp -p 27016:27016/udp -p 9700:9700/udp -e UPDATE_ON_START=false -v <PATH_TO_YOUR_CONFIG_DIR>:/srv/sons-of-the-docker/config giovannidegiorgio/sons-of-the-docker:latest
 ```
 
 Or 
@@ -49,6 +52,8 @@ services:
   sons-of-the-docker:
     image: giovannidegiorgio/sons-of-the-docker:latest
     container_name: sons-of-the-docker
+    environment:
+      - UPDATE_ON_START: false
     ports:
       - "8766:8766/udp"
       - "27016:27016/udp" 
