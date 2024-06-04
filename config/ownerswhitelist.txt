@@ -2,6 +2,3 @@
 # Add below the steam ids of every server owner, one steam id per line.
 # To find your SteamID, open Steam and click on your name on the top right, then go to Account Details.
 # You can use # to comment out a line. That can be helpful to keep track of SteamIDs, you can include their name in the line above or below, starting with a #.
-
-# Gioddiggi
-76561198248253830
