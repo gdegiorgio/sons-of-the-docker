@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.11.0] - 2024-09-22
+### :boom: BREAKING CHANGES
+- due to [`2449f52`](https://github.com/gdegiorgio/sons-of-the-docker/commit/2449f52d4e65392d13d30352979aab8c48f1d7c8) - release 1.0.0 *(commit by [@gdegiorgio](https://github.com/gdegiorgio))*:
+
+  release 1.0.0
+
+
+### :sparkles: New Features
+- [`2449f52`](https://github.com/gdegiorgio/sons-of-the-docker/commit/2449f52d4e65392d13d30352979aab8c48f1d7c8) - release 1.0.0 *(commit by [@gdegiorgio](https://github.com/gdegiorgio))*
+
+
 ## [v0.10.0] - 2024-06-04
 ### :sparkles: New Features
 - [`005b967`](https://github.com/gdegiorgio/sons-of-the-docker/commit/005b967a22238dcb8426f1c1b64e5a549061f676) - add -userdatapath option to server launch *(PR [#5](https://github.com/gdegiorgio/sons-of-the-docker/pull/5) by [@gdegiorgio](https://github.com/gdegiorgio))*
@@ -32,3 +43,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [v0.8.0]: https://github.com/gdegiorgio/sons-of-the-docker/compare/v0.7.0...v0.8.0
 [v0.9.0]: https://github.com/gdegiorgio/sons-of-the-docker/compare/v0.8.0...v0.9.0
 [v0.10.0]: https://github.com/gdegiorgio/sons-of-the-docker/compare/v0.9.0...v0.10.0
+[v0.11.0]: https://github.com/gdegiorgio/sons-of-the-docker/compare/v0.10.0...v0.11.0
