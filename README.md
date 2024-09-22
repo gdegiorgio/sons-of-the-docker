@@ -1,7 +1,3 @@
-
->⚠️ **Still Under Development** ⚠️  
-> 🗺️ On the Roadmap: Providing volumes for data persistence. Stay tuned for updates from the underworld!  
-
 <p align="center">
   <img src="https://github.com/gdegiorgio/sons-of-the-docker/actions/workflows/push-image.yaml/badge.svg" alt="Release Workflow">
   <img src="https://img.shields.io/docker/pulls/giovannidegiorgio/sons-of-the-docker.svg" alt="Docker Pulls">
